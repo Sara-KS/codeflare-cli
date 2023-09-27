@@ -78,7 +78,7 @@ export default async function initWatcher(this: TopOptions, { context, cluster, 
       "-c",
       `"while true; do kubectl get pod --context ${context} ${
         ns ? `-n ${ns}` : ""
-      } --no-headers -o=custom-columns=NAME:.metadata.name,JOB:'.metadata.labels.app\\.kubernetes\\.io/instance',HOST:.status.hostIP,CPU:'.spec.containers[0].resources.requests.cpu',CPUL:'.spec.containers[0].resources.limits.cpu',MEM:'.spec.containers[0].resources.requests.memory',MEML:'.spec.containers[0].resources.limits.memory',GPU:.spec.containers[0].resources.requests.'nvidia\\.com/gpu',GPUL:.spec.containers[0].resources.limits.'nvidia\\.com/gpu',JOB2:'.metadata.labels.appwrapper\\.mcad\\.ibm\\.com',CTIME:.metadata.creationTimestamp,USER:'.metadata.labels.app\\.kubernetes\\.io/owner'; echo '${recordSeparator}'; sleep 2; done"`,
+      } --no-headers -o=custom-columns=NAME:.metadata.name,JOB:'.metadata.labels.app\\.kubernetes\\.io/instance',HOST:.status.hostIP,CPU:'.spec.containers[0].resources.requests.cpu',CPUL:'.spec.containers[0].resources.limits.cpu',MEM:'.spec.containers[0].resources.requests.memory',MEML:'.spec.containers[0].resources.limits.memory',GPU:.spec.containers[0].resources.requests.'nvidia\\.com/gpu',GPUL:.spec.containers[0].resources.limits.'nvidia\\.com/gpu',JOB2:'.metadata.labels.appwrapper\\.workload\\.codeflare\\.dev',CTIME:.metadata.creationTimestamp,USER:'.metadata.labels.app\\.kubernetes\\.io/owner'; echo '${recordSeparator}'; sleep 2; done"`,
     ],
     { shell: "/bin/bash", stdio: ["ignore", "pipe", "pipe"] }
   )
